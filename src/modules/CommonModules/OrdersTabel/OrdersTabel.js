@@ -15,6 +15,7 @@ class OrderTable extends Component {
     this.toggleDeclineOrder = this.toggleDeclineOrder.bind(this);
 
     this.state = {
+      totalDelivery: 0,
       modalAddDelivery: false,
       modalDeclineOrder: false,
       orderId: null,
@@ -49,7 +50,8 @@ class OrderTable extends Component {
                       this.props.AcceptOrders
                         ? singleOrder.status == "placed"
                         : this.props.MyOrders
-                        ? singleOrder.status == "accepted" || singleOrder.status == "paid"
+                        ? singleOrder.status == "accepted" ||
+                          singleOrder.status == "paid"
                         : true
                     )
                       return (
@@ -329,14 +331,8 @@ class OrderTable extends Component {
                                                             );
                                                           }
                                                         )}
+                                                        <br/>
                                                       <tr>
-                                                        <h5>
-                                                          Total{" "}
-                                                          {
-                                                            singleOrder.totalPrice
-                                                          }{" "}
-                                                          LKR
-                                                        </h5>
                                                         {singleDelivery.isAccepted ? (
                                                           <span
                                                             style={{

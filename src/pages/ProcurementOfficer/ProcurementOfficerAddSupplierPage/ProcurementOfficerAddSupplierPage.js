@@ -127,9 +127,6 @@ class ProcurementOfficerAddSupplierPage extends Component {
                                   }}
                                 />
                               </td>
-                              <td>
-                                <FaCog />
-                              </td>
                             </tr>
                           );
                       })}
