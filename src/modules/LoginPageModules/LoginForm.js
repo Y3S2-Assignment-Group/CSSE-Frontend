@@ -73,7 +73,7 @@ class LoginForm extends Component {
           });
         }
       );
-    }else if (this.props.role === "PROCUREMENT OFFICER") {
+    } else if (this.props.role === "PROCUREMENT OFFICER") {
       this.props.procurementOfficerLogin(
         loginObj,
         () => {
@@ -90,7 +90,7 @@ class LoginForm extends Component {
       );
     }
   }
-  
+
   render() {
     return (
       <div className="container">
@@ -132,7 +132,38 @@ class LoginForm extends Component {
           </div>
           <div className="mt-2 mb-5">
             <p>or</p>
-            <a href="/">Register Here !</a>
+            {this.props.role === "SUPPLIER" ? (
+              <>
+                {" "}
+                <a href="/managerlogin">Manager Login</a>{" "}
+                <a href="/accountingofficelogin">Accounting Officer Login</a>{" "}
+                <a href="/procurementofficerlogin">Procurement Officer Login</a>{" "}
+                <a href="/managerregister">Manager Register</a>{" "}
+              </>
+            ) : this.props.role === "MANAGER" ? (
+              <>
+                {" "}
+                <a href="/">Supplier Login</a>{" "}
+                <a href="/accountingofficelogin">Accounting Officer Login</a>{" "}
+                <a href="/procurementofficerlogin">Procurement Officer Login</a>{" "}
+              </>
+            ) : this.props.role === "ACCOUNTING OFFICER" ? (
+              <>
+                {" "}
+                <a href="/">Supplier Login</a>{" "}
+                <a href="/managerlogin">Manager Login</a>{" "}
+                <a href="/procurementofficerlogin">Procurement Officer Login</a>{" "}
+              </>
+            ) : this.props.role === "PROCUREMENT OFFICER" ? (
+              <>
+                {" "}
+                <a href="/">Supplier Login</a>{" "}
+                <a href="/managerlogin">Manager Login</a>{" "}
+                <a href="/accountingofficelogin">Accounting Officer Login</a>{" "}
+              </>
+            ) : (
+              ""
+            )}
           </div>
           <ToastContainer />
         </div>

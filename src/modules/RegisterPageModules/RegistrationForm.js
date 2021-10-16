@@ -128,7 +128,30 @@ class RegistrationForm extends Component {
           </div>
           <div className="mt-2 mb-5">
             <p>or</p>
-            <a href="/">Login !</a>
+            {this.props.role === "SUPPLIER" ? (
+              <>
+                <a href="/managerregister">Manager Register</a>{" "}
+                <a href="/accountingofficerregister">Accounting Officer Register</a>{" "}
+                <a href="/procurementofficerregister">Procurement Officer Register</a>{" "}
+              </>
+            ) : this.props.role === "MANAGER" ? (
+              <>
+                <a href="/accountingofficerregister">Accounting Officer Register</a>{" "}
+                <a href="/procurementofficerregister">Procurement Officer Register</a>{" "}
+              </>
+            ) : this.props.role === "ACCOUNTING OFFICER" ? (
+              <>
+                <a href="/managerregister">Manager Register</a>{" "}
+                <a href="/procurementofficerregister">Procurement Officer Register</a>{" "}
+              </>
+            ) : this.props.role === "PROCUREMENT OFFICER" ? (
+              <>
+                <a href="/managerregister">Manager Register</a>{" "}
+                <a href="/accountingofficerregister">Accounting Officer Register</a>{" "}
+              </>
+            ) : (
+              ""
+            )}
           </div>
           <ToastContainer />
         </div>
